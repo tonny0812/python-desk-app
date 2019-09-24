@@ -1,3 +1,5 @@
+from random import random
+
 import eel
 
 def mongo_init():  # Local function
@@ -21,13 +23,25 @@ def mongo_init():  # Local function
 def set_title():  # Example to send data for javascript/html
     return "Code example - Eel + Bootstrap 4 + MongoDb"
 
+# 这是一个回调函数
+def print_num(n):
+    print('Got this from Javascript:', n)
 
 @eel.expose  # Eel function
 def save_user(email, password):
     dict_user = {"email": email, "password": password}
     # user.insert_one(dict_user).inserted_id
     user.append(dict_user)
+    print('Calling Javascript...')
+    eel.my_javascript_function(1, 2, 3, 4)(print_num)  # This calls the Javascript function
+    # 同步返回
+    # 在python端, 我们只要不使用回调函数就能同步返回:
+    n = eel.js_random()()  # 这里有两个括号
+    print('Got this from Javascript:', n)
 
+@eel.expose
+def py_random():
+    return random()
 
 @eel.expose  # Eel function
 def drop_database():
@@ -50,4 +64,13 @@ def get_users():
 if __name__ == '__main__':
     eel.init('web')  # Give folder containing web files
     mongo_init()  # Init mongodb
-    eel.start('index.html', size=(800, 600))  # Start
+
+    web_app_options = {
+        'mode': "chrome-app",  # or "chrome"
+        'port': 8080,
+        'chromeFlags': ["--start-fullscreen", "--browser-startup-dialog"]
+    }
+
+    eel.start('index.html', size=(800, 600), options=web_app_options)  # Start
+
+
