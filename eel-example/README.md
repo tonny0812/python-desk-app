@@ -31,3 +31,7 @@ Copy and paste the following line into a terminal window.
 ```bash
 $ python run.py
 ```
+
+# 其他参考
+[html技术构建python桌面程序-利用eel](https://mlln.cn/2018/11/09/html%E6%8A%80%E6%9C%AF%E6%9E%84%E5%BB%BApython%E6%A1%8C%E9%9D%A2%E7%A8%8B%E5%BA%8F-%E5%88%A9%E7%94%A8eel/#Eel%E7%AE%80%E4%BB%8B)
+
