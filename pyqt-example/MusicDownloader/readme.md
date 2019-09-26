@@ -41,3 +41,5 @@ python main.py
 [网易云音乐歌单详情列表爬虫破解](https://blog.csdn.net/Deadeyehui/article/details/80708625)
 
 [图标](https://www.iconfinder.com/iconsets/ionicons)
+
+[Github链接](https://github.com/wwwpf/MusicDownloader)
