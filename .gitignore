@@ -55,3 +55,6 @@ fabric.properties
 
 .idea/
 /venv/
+**/build/
+**/dist/
+**.spec
