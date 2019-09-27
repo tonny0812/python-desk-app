@@ -13,10 +13,10 @@ import sys
 # PyQt5中使用的基本控件都在PyQt5.QtWidgets模块中
 from PyQt5.QtWidgets import QApplication, QMainWindow
 # 导入designer工具生成的模块
-from login import Ui_Form
+from login import Ui_Window
 
 
-class MyMainForm(QMainWindow, Ui_Form):
+class MyMainForm(QMainWindow, Ui_Window):
     def __init__(self, parent=None):
         super(MyMainForm, self).__init__(parent)
         self.setupUi(self)
@@ -24,6 +24,7 @@ class MyMainForm(QMainWindow, Ui_Form):
         self.login_button.clicked.connect(self.display)
         # 添加退出按钮信号和槽。调用close函数
         self.quit_button.clicked.connect(self.close)
+        self.list_button.clicked.connect(self.showList)
 
     def display(self):
         # 利用line Edit控件对象text()函数获取界面输入
@@ -31,6 +32,9 @@ class MyMainForm(QMainWindow, Ui_Form):
         password = self.password_input.text()
         # 利用text Browser控件对象setText()函数设置界面显示
         self.display_text.setText("登录成功!\n" + "用户名是: " + username + ",密码是： " + password)
+
+    def showList(self):
+        print("list show")
 
 
 if __name__ == "__main__":
